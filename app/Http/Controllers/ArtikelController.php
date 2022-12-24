@@ -84,7 +84,7 @@ class ArtikelController extends Controller
     public function edit(Artikel $artikel)
     {
         $artikels = Artikel::latest();
-        $tags = Tag::latest();
+        $tags = Tag::all();
         return view('artikel.edit',compact('artikel','tags'));
     }
 
@@ -108,10 +108,11 @@ class ArtikelController extends Controller
             $artikel->update([
                 'judul'     => $request->judul,
                 'isi'       => $request->isi,
-                'tag_id '   => $request->tag_id,
+                'tag_id '   => $artikel->tags()->sync($request->tag_id),
             
             ]);
-            return redirect()->route('artikel.index')->with(['success' => 'Data Berhasil Diubah!']);
+
+            return redirect()->route('artikels.index')->with(['success' => 'Data Berhasil Diubah!']);
         }
     
 

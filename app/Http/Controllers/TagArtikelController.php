@@ -49,7 +49,7 @@ class TagArtikelController extends Controller
             'name'    =>$request->name,
             
         ]);
-        return redirect()->route('showtags.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('tags.index')->with(['success' => 'Data Berhasil Disimpan!']);
     
     }
 

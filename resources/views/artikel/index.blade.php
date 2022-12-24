@@ -152,7 +152,7 @@
                                 <button class="btn btn-sm btn-primary me-2">{{ $tag->name }}</button>
                                 @endforeach
                             </td>
-                            <td> <a class="btn btn-primary" href="# ">Detail</a>
+                            <td> <a class="btn btn-sm btn-primary" href="# ">Detail</a>
                                 
                                 
                               <a href="{{ route('artikels.edit', $artikel->id) }}" class="btn btn-sm btn-primary">Edit Artikel</a>
@@ -161,7 +161,8 @@
                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{route('artikels.destroy',$artikel->id)  }} " method="POST">
                                     @csrf
                                     @method('DELETE')
-                                <input class="btn btn-danger" type="submit" value="Delete">
+                                    
+                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                 </form> 
                             
                             </td>
